@@ -1,7 +1,12 @@
 # groceries.py
 
-#from pprint import pprint
+from pprint import pprint
 
+def to_usd(my_price):
+    return "${0:,.2f}".format(my_price)
+
+
+#curly braces tell you it's a dictionary. each one is a dictionary.
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -25,10 +30,32 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
+products_count = len(products)
+
 print("--------------")
-print("THERE ARE 20 PRODUCTS:")
+
+# you can use print(f"one string {products_count} another string:")
+print(f"THERE ARE {products_count} PRODUCTS:")
+
+# or you can do print("one string" + products_count + "another string:")
+# or you can do print("one string",products_count,"another string:")
+
+for item in products:
+    #print(type[item]) 
+    #print(p["name"]) 
+    #print(item["name"]) <<<use rectangle brackets to reference items in a dictionary.
+    #n = item["name"]
+    #price = item["price"]
+    #print(f"{item['name']} ... ${item['price']}") <<Concatenate using the f formula.
+    
+    price_usd = to_usd(item['price'])
+    print(f"{item['name']} ... {price_usd}")
+
 print("--------------")
-print(products)
+
+
+
+#print(products)
 # pprint(products)
 
 # TODO: write some Python code here to produce the desired output
