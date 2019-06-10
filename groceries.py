@@ -49,7 +49,7 @@ for item in products:
     #print(f"{item['name']} ... ${item['price']}") <<Concatenate using the f formula.
     
     price_usd = to_usd(item['price'])
-    print(f"{item['name']} ... {price_usd}")
+    print(f"+ {item['name']} ({price_usd})")
 
 print("--------------")
 
