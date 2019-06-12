@@ -63,7 +63,11 @@ for item in sorted_products: #you named each list in the dictionary as "item" so
     price_usd = to_usd(item['price'])
     print(f"+ {item['name']} ({price_usd})")
 
-print("--------------")
+
+# print(products)
+# pprint(products)
+
+# TODO: write some Python code here to produce the desired output
 
 # Creating a filter
 # arr = [1, 2, 3, 4]
@@ -98,8 +102,6 @@ for d in unique_departments:
 
 
 
-#print(products)
-# pprint(products)
 
 # TODO: write some Python code here to produce the desired output
 
