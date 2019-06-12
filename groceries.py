@@ -6,7 +6,7 @@ def to_usd(my_price):
     return "${0:,.2f}".format(my_price)
 
 
-#curly braces tell you it's a dictionary. each one is a dictionary.
+#curly braces tell you it's a dictionary. each one is a dictionary. Read about dictionaries here: https://github.com/prof-rossetti/nyu-info-2335-201905/blob/master/notes/python/datatypes/dictionaries.md
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -30,19 +30,31 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-products_count = len(products)
+products_count = len(products) #read about lists here: https://github.com/prof-rossetti/nyu-info-2335-201905/blob/master/notes/python/datatypes/lists.md
 
 print("--------------")
 
 # you can use print(f"one string {products_count} another string:")
-print(f"THERE ARE {products_count} PRODUCTS:")
+# print(f"THERE ARE {products_count} PRODUCTS:")
+print("THERE ARE",{products_count},"PRODUCTS:")
 
 # or you can do print("one string" + products_count + "another string:")
 # or you can do print("one string",products_count,"another string:")
 
-for item in products:
-    #print(type[item]) 
-    #print(p["name"]) 
+
+print("--------------")
+
+
+
+def sort_by_name(any_product):
+    return any_product['name']
+
+sorted_products = sorted(products, key=sort_by_name)
+
+
+
+for item in sorted_products: #you named each list in the dictionary as "item" so you can print(type[item]) --- it is a dictionary data type.
+    #print(item["name"]) 
     #print(item["name"]) <<<use rectangle brackets to reference items in a dictionary.
     #n = item["name"]
     #price = item["price"]
@@ -53,9 +65,51 @@ for item in products:
 
 print("--------------")
 
+# Creating a filter
+# arr = [1, 2, 3, 4]
+# arr2 = []
+# for i in arr:
+#   arr2.append(i * 100)
+
+departments = []
+
+for newline in products:
+    #print(newline["department"])
+    departments.append(newline["department"])
+    
+    #if newline["department"] not in departments:
+    #    departments.append(newline["department"])
+
+unique_departments = list(set(departments))
+
+#department_count = len(somelist)
+department_count = len(unique_departments)
+
+print(f"THERE ARE {department_count} DEPARTMENTS:")
+print("--------------")
+
+unique_departments.sort()
+
+product_subtotal = "1"
+
+for d in unique_departments:
+    print(f"{d.title()} ({product_subtotal} product)") #makes the result into Title Case. Refer to https://github.com/prof-rossetti/nyu-info-2335-201905/blob/master/notes/python/datatypes/strings.md
+    
+
 
 
 #print(products)
 # pprint(products)
 
 # TODO: write some Python code here to produce the desired output
+
+
+
+
+# breakpoint()
+# breakpoint() allows you to start testing/working within the program using a command line software like Git Bash.
+# you can test pdb using the following command line filters
+# [p for p in products if p["department"] == "snacks"]
+# [p for p in products if p["id"] == 4]
+# and for one that returns an error:
+# 
